@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Lista Cargos</title>
+        <meta charset="UTF-8"></meta>
+    </h:head>
+    <h:body>
+        <b:form id="forma" style="padding-left: 50px; padding-top: 50px;">
+            <b:panel>
+                <br/>
+                <b:row>
+                    <b:label severity="primary" value="LISTA CARGOS" large-screen="full-width"
+                             style="font-size: 30px;"/>                 
+                </b:row>
+                <br/>
+                <b:commandButton value="NUEVO CARGO" look="primary" style="width: 180px; align-content: center;"
+                                 action="/Vistas/NuevoCargo"/>
+
+                <br/><br/>
+                <b:dataTable value="#{beanCargo.ListaCargos()}" var="cargo" style="width: 1380px">
+                    <b:dataTableColumn value="#{cargo.idcargo}" label="ID" width="60px"/>
+                    <b:dataTableColumn value="#{cargo.nombre}" label="NOMBRE CARGO" width="350px"/>
+                    <b:dataTableColumn value="#{cargo.sueldo_min}" label="SUELDO MINIMO" width="150px"/>
+                    <b:dataTableColumn value="#{cargo.sueldo_max}" label="SUELDO MAXIMO" width="150px"/>
+                    <b:dataTableColumn label="ACCIONES" width="180px">
+                        <b:commandButton value="Editar" look="success" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.editarCargo(cargo)}" action="/Vistas/EditarCargo"/>
+                        <b:commandButton value="Eliminar" look="danger" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.eliminarCargo(cargo.getIdcargo())}"/>
+                    </b:dataTableColumn>
+                </b:dataTable>  
+                <br/><br/>
+                <br/><br/>
+
+                <b:row>
+                    <b:label severity="primary" value="LISTA USUARIOS" large-screen="full-width"
+                             style="font-size: 30px;"/>                 
+                </b:row>
+                <b:dataTable value="#{beanUsuario.ListaUsuario()}" var="usuario" style="width: 1380px">
+                    <b:dataTableColumn value="#{usuario.id}" label="ID" width="60px"/>
+                    <b:dataTableColumn value="#{usuario.nomUsuario}" label="nombre user " width="350px"/>
+                    <b:dataTableColumn value="#{usuario.contra}" label="contraseña" width="150px"/>
+                    <b:dataTableColumn value="#{usuario.rol}" label="rol " width="150px"/>
+                    <b:dataTableColumn label="ACCIONES" width="180px">
+                        <b:commandButton value="Editar" look="success" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.editarCargo(cargo)}" action="/Vistas/EditarCargo"/>
+                        <b:commandButton value="Eliminar" look="danger" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.eliminarCargo(cargo.getIdcargo())}"/>
+                    </b:dataTableColumn>
+                </b:dataTable>  
+
+                <br/><br/>
+
+                <b:row>
+                    <b:label severity="primary" value="LISTA PERSONAL" large-screen="full-width"
+                             style="font-size: 30px;"/>                 
+                </b:row>
+                <b:dataTable value="#{beanDoctor.ListaDoctor()}" var="doctor" style="width: 1380px">
+                    <b:dataTableColumn value="#{doctor.ID}" label="ID" width="60px"/>
+                    <b:dataTableColumn value="#{doctor.nombre}" label="nombre  " width="350px"/>
+                    <b:dataTableColumn value="#{doctor.apellido}" label="apellido" width="150px"/>
+                    <b:dataTableColumn value="#{doctor.especializacion}" label="especializacion " width="150px"/>
+                    <b:dataTableColumn value="#{doctor.correoElectronico}" label="correo " width="150px"/>
+                    <b:dataTableColumn value="#{doctor.telefono}" label="telefono " width="150px"/>
+                    <b:dataTableColumn label="ACCIONES" width="180px">
+                        <b:commandButton value="Editar" look="success" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.editarCargo(cargo)}" action="/Vistas/EditarCargo"/>
+                        <b:commandButton value="Eliminar" look="danger" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.eliminarCargo(cargo.getIdcargo())}"/>
+                    </b:dataTableColumn>
+                </b:dataTable>  
+
+                <br/><br/>
+
+                <b:row>
+                    <b:label severity="primary" value="LISTA CLIENTES" large-screen="full-width"
+                             style="font-size: 30px;"/>                 
+                </b:row>
+                <b:dataTable value="#{beanCliente.ListaCliente()}" var="cliente" style="width: 1380px">
+                    <b:dataTableColumn value="#{cliente.id}" label="id" width="60px"/>
+                    <b:dataTableColumn value="#{cliente.dni}" label="dni" width="60px"/>
+                    <b:dataTableColumn value="#{cliente.nombre}" label="nombre  " width="350px"/>
+                    <b:dataTableColumn value="#{cliente.apellido}" label="apellido" width="150px"/>
+                    <b:dataTableColumn value="#{cliente.correo}" label="correo " width="150px"/>
+                    <b:dataTableColumn value="#{cliente.telefono}" label="telefono " width="150px"/>
+                    <b:dataTableColumn label="ACCIONES" width="180px">
+                        <b:commandButton value="Editar" look="success" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.editarCargo(cargo)}" action="/Vistas/EditarCargo"/>
+                        <b:commandButton value="Eliminar" look="danger" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.eliminarCargo(cargo.getIdcargo())}"/>
+                    </b:dataTableColumn>
+                </b:dataTable>  
+
+                <br/><br/>
+
+                <b:row>
+                    <b:label severity="primary" value="LISTA MASCOTA" large-screen="full-width"
+                             style="font-size: 30px;"/>                 
+                </b:row>
+                <b:dataTable value="#{beanMascota.ListaMascota()}" var="mascota" style="width: 1380px">
+                    <b:dataTableColumn value="#{mascota.id}" label="ID" width="60px"/>
+                    <b:dataTableColumn value="#{mascota.nombre}" label="nombre  " width="350px"/>
+                    <b:dataTableColumn value="#{mascota.especie}" label="especie" width="150px"/>
+                    <b:dataTableColumn value="#{mascota.raza}" label="raza " width="150px"/>
+                    <b:dataTableColumn value="#{mascota.edad}" label="edad" width="150px"/>
+                    <b:dataTableColumn value="#{mascota.peso}" label="peso(kg)" width="150px"/>
+                    <b:dataTableColumn value="#{mascota.dueño_id}" label="Id del Dueño" width="150px"/>
+                    <b:dataTableColumn value="#{mascota.fechaNacimiento}" label="Fecha de Nacimiento" width="150px"/>
+                    <b:dataTableColumn value="#{mascota.vacunaciones}" label="Vacunaciones" width="150px"/>
+                    <b:dataTableColumn value="#{mascota.notas}" label="Notas / Observaciones" width="150px"/>
+                    <b:dataTableColumn label="ACCIONES" width="180px">
+                        <b:commandButton value="Editar" look="success" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.editarCargo(cargo)}" action="/Vistas/EditarCargo"/>
+                        <b:commandButton value="Eliminar" look="danger" style="width:80px; align-content: center;"
+                                         actionListener="#{beanCargo.eliminarCargo(cargo.getIdcargo())}"/>
+                    </b:dataTableColumn>
+                </b:dataTable>  
+            </b:panel>
+        </b:form>
+    </h:body>
+</html>
